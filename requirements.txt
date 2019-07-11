@@ -6,6 +6,7 @@ matplotlib
 sklearn
 seaborn
 tensorflow
+Pillow
 # web app
 flask
 gunicorn

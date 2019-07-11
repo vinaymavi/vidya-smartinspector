@@ -20,5 +20,6 @@ solutions set this environment variable `export LC_ALL=C`
 ### clone project to server 
 ### genrate models 
 * python3.7 RandomForest_Model.py
+* python3.7 CNN_Model.py
 ### run gunicorn server use `tmux`  to run this server
 * run `gunicorn -w 4 app:app -b 0.0.0.0:5000`

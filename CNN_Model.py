@@ -43,7 +43,7 @@ test_set = test_datagen.flow_from_directory('./data/cnn/test_set',target_size = 
 model.fit_generator(training_set,samples_per_epoch = 8000, nb_epoch = 1,validation_data = test_set,nb_val_samples = 800)
 
 model.save('./genrated_models/model_3.h5')
-
+print("Model genrated successfully.")
 from keras.models import load_model
 # load model
 model = load_model("./genrated_models/model_3.h5")
@@ -56,6 +56,8 @@ test_image = image.load_img(filename1, target_size =(64,64))
 test_image = image.img_to_array(test_image)
 test_image = np.expand_dims(test_image, axis=0)
 test_image /= 255.
+print("Image prediction start")
 result = model.predict(test_image)
 print(model.predict_classes(test_image))
 print(result)
+print("Image prediction end")

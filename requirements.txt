@@ -4,6 +4,7 @@ numpy
 pandas
 matplotlib
 sklearn
+seaborn
 # web app
 flask
 gunicorn

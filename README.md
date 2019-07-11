@@ -15,3 +15,10 @@ Run application `sh run.sh`
 solutions set this environment variable `export LC_ALL=C`
 * sudo: pip: command not found
 `sudo ln /home/ubuntu/.local/bin/pip /usr/bin/pip -f`
+
+# Produduction Deployment
+### clone project to server 
+### genrate models 
+* python3.7 RandomForest_Model.py
+### run gunicorn server use `tmux`  to run this server
+* run `gunicorn -w 4 app:app -b 0.0.0.0:5000`

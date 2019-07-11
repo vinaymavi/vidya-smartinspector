@@ -5,6 +5,7 @@ pandas
 matplotlib
 sklearn
 seaborn
+tensorflow
 # web app
 flask
 gunicorn

@@ -1,7 +1,7 @@
 import numpy as np
 #Save the Model file
 import pickle
-filename = "C:\FY19\Idea\Corrosion&LeakDetector\Model\model_3.h5"
+filename = "./genrated_models/model_3.h5"
 from keras.models import load_model
 
 #load the model File and predict
@@ -11,7 +11,7 @@ model = load_model(filename)
 
 import numpy
 import numpy as np
-filename1 = "C:\FY19\Idea\Corrosion&LeakDetector\\Model\\13.jpg"
+filename1 = "./data/cnn/test_set/Normal_Condition/1413919861994.jpg"
 from keras.preprocessing import image
 
 def CNN_predict(filename) :

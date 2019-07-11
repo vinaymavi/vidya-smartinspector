@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request,jsonify,make_response
 from RandomForest_Predict import functionpredict
+from CNN_Predict import CNN_predict
 app = Flask(__name__)
 
 def resp_message(status,desc,data):
@@ -17,7 +18,11 @@ def hello():
 
 @app.route("/v1/cnn")
 def v1cnn():
-    return "CNN model is running"
+    filename1 = "./data/cnn/test_set/Normal_Condition/1413919861994.jpg"
+    output_label = CNN_predict(filename1)
+    print(output_label);
+    return make_response(jsonify(resp_message(output_label,None,None)),200)
+    
 
 @app.route("/v1/rf")
 def v1rf():

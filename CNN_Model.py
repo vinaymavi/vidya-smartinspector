@@ -30,8 +30,8 @@ train_datagen = ImageDataGenerator(rescale = 1./255,shear_range = 0.1,zoom_range
 test_datagen = ImageDataGenerator(rescale=1. / 255)
 #Fitting images to the CNN
 
-training_set = train_datagen.flow_from_directory('C:\FY19\Idea\Corrosion&LeakDetector\Model\\dataset\\training_set\\', target_size = (64, 64),batch_size = 32,class_mode = 'categorical')
-test_set = test_datagen.flow_from_directory('C:\FY19\Idea\Corrosion&LeakDetector\Model\\dataset\\test_set\\',target_size = (64, 64),batch_size = 32,class_mode = 'categorical')
+training_set = train_datagen.flow_from_directory('./data/cnn/training_set', target_size = (64, 64),batch_size = 32,class_mode = 'categorical')
+test_set = test_datagen.flow_from_directory('./data/cnn/test_set',target_size = (64, 64),batch_size = 32,class_mode = 'categorical')
 #Training and Evaluating the model epoc 15
 
 #nb_train_samples = 200  #total
@@ -42,15 +42,15 @@ test_set = test_datagen.flow_from_directory('C:\FY19\Idea\Corrosion&LeakDetector
 #2000 , 6 , 200
 model.fit_generator(training_set,samples_per_epoch = 8000, nb_epoch = 1,validation_data = test_set,nb_val_samples = 800)
 
-model.save('C:\FY19\Idea\Corrosion&LeakDetector\Model\model_3.h5')
+model.save('./genrated_models/model_3.h5')
 
 from keras.models import load_model
 # load model
-model = load_model("C:\FY19\Idea\Corrosion&LeakDetector\Model\model_3.h5")
+model = load_model("./genrated_models/model_3.h5")
 
 import numpy
 import numpy as np
-filename1 = "C:\FY19\Idea\Corrosion&LeakDetector\\Model\\1413919861994.jpg"
+filename1 = "./data/cnn/test_set/Normal_Condition/1413919861994.jpg"
 from keras.preprocessing import image
 test_image = image.load_img(filename1, target_size =(64,64))
 test_image = image.img_to_array(test_image)

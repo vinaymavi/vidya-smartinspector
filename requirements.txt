@@ -1,0 +1,8 @@
+# ML library
+keras
+numpy
+pandas
+matplotlib
+sklearn
+# web app
+flask

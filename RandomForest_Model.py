@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-filename = 'C:\FY19\Idea\Corrosion&LeakDetector\Model\CorrostionDataset_v2.csv'
+filename = './data/rf/CorrostionDataset_v2.csv'
 
 corrosiondata = pd.read_csv(filename)
 print(corrosiondata.columns)
@@ -44,11 +44,11 @@ print("Accuracy on test set: {:.3f}".format(rf.score(X_test, y_test)))
 #print("Accuracy on training set: {:.3f}".format(rf1.score(X_train, y_train)))
 #print("Accuracy on test set: {:.3f}".format(rf1.score(X_test, y_test)))
 #plot_feature_importances_corrosiondata(rf)
-plt.savefig('C:\FY19\Idea\Corrosion&LeakDetector\Model\CorrosionParamFeature_importance1')
+plt.savefig('./savefig/CorrosionParamFeature_importance1')
 
 #Save the Model file
 import pickle
-filename = 'C:\FY19\Idea\Corrosion&LeakDetector\Model\CorrosionCARF_mode2.sav'
+filename = './genrated_models/CorrosionCARF_mode2.sav'
 pickle.dump(rf, open(filename, 'wb'))
 
 

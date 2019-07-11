@@ -1,7 +1,7 @@
 import numpy as np
 #Save the Model file
 import pickle
-filename = 'C:\FY19\Idea\Corrosion&LeakDetector\Model\CorrosionCARF_mode2.sav'
+filename = './genrated_models/CorrosionCARF_mode2.sav'
 
 
 #load the model File and predict
@@ -49,16 +49,26 @@ def functionpredict(paramlist):
     #test = [[100,100,0,19,37,0]]
     result = loaded_model.predict(testdata)
     print(result)
+    if result == "R5" :
+        return {
+            "result":"R5",
+            "desc":"Corrosion Index: Very High , predicted corrosion rate : 40-60 um/a"}
     if result == "R4" :
-        return ("Corrosion Index: Very High , predicted corrosion rate : 40-60 um/a")
-    if result == "R4" :
-        return ("Corrosion Index :High , predicted corrosion rate : 33-40 um/a")
+        return {
+            "result":"R4",
+            "desc":"Corrosion Index :High , predicted corrosion rate : 33-40 um/a"}
     if result == "R3" :
-        return ("Corrosion Index :Medium ,predicted corrosion rate : 31-32 um/a")
+        return {
+            "result":"R3",
+            "desc":"Corrosion Index :Medium ,predicted corrosion rate : 31-32 um/a"}
     if result == "R2" :
-        return ("Corrosion Index: Low , predicted corrosion rate : 29-30 um/a")
+        return {
+            "result":"R2",
+            "desc":"Corrosion Index: Low , predicted corrosion rate : 29-30 um/a"}
     if result == "R1" :
-        return ("Corrosion Index : Very Low, predicted corrosion rate : 25-28 um/a")
+        return {
+            "result":"R1",
+            "desc":"Corrosion Index : Very Low, predicted corrosion rate : 25-28 um/a"}
 
 
 test = [75.09,17.58,159.74,0.089,6.14,0.221]

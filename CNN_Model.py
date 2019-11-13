@@ -40,8 +40,8 @@ test_set = test_datagen.flow_from_directory('./data/cnn/test_set',target_size = 
 #batch_size = 10
 
 #2000 , 6 , 200
-model.fit_generator(training_set,samples_per_epoch = 8000, nb_epoch = 1,validation_data = test_set,nb_val_samples = 800)
-
+model.fit_generator(training_set,samples_per_epoch = 8000, nb_epoch = 1,validation_data = test_set,validation_steps=800//32)
+print("Saving Model..")
 model.save('./genrated_models/model_3.h5')
 print("Model genrated successfully.")
 from keras.models import load_model

@@ -44,8 +44,10 @@ print("Accuracy on test set: {:.3f}".format(rf.score(X_test, y_test)))
 #print("Accuracy on training set: {:.3f}".format(rf1.score(X_train, y_train)))
 #print("Accuracy on test set: {:.3f}".format(rf1.score(X_test, y_test)))
 #plot_feature_importances_corrosiondata(rf)
+print("Saving fig")
 plt.savefig('./savefig/CorrosionParamFeature_importance1')
 
+print("Save model")
 #Save the Model file
 import pickle
 filename = './genrated_models/CorrosionCARF_mode2.sav'
